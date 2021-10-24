@@ -1,0 +1,20 @@
+---
+- name: Installing complete httpd
+  hosts: all
+  become: true
+  tasks:
+  - name: Installing httpd first
+    yum:
+      name: httpd
+      state: installed
+
+  - name: Start httpd service
+    service:
+      name: httpd
+      state: started
+
+  - name: Copy index.html
+    copy:
+      src: /home/ansadmin/index.html
+      dest: /var/www/html
+      mode: 0777

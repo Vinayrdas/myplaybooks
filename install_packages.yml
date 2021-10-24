@@ -1,0 +1,9 @@
+---
+- name: Intsalling a package
+  hosts: webservers
+  become: true
+  tasks:
+  - name: Installing a package Git
+    yum:
+      name: git
+      state: installed

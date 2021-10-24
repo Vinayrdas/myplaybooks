@@ -1,0 +1,8 @@
+---
+- name: Install Apache/httpd
+  hosts: all
+  become: true
+
+  roles:
+  - setup-apache-role
+
